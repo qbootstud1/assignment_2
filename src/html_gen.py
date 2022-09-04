@@ -1,4 +1,4 @@
-from typing import IO
+from typing import IO, TextIO
 
 
 class HtmlDoc:
@@ -14,7 +14,7 @@ class HtmlDoc:
         self.write_html_head()
         self.write_html_tail()
 
-    def open_html_file(self) -> None:
+    def open_html_file(self) -> TextIO:
         return open(self.__fnam, "w")
 
     def close_html_file(self) -> None:
@@ -37,7 +37,6 @@ class HtmlDoc:
         self.write_html_line(1, f"<title>{self.__wintitle}</title>")
         self.write_html_line(0, "</head>")
         self.write_html_line(0, "<body>")
-        self.__write_html_comment(1, "to be generated")
 
     def write_html_tail(self) -> None:
         self.write_html_line(0, "</body>")
